@@ -1,0 +1,52 @@
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+input,
+button,
+img,
+select {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+*{
+    box-sizing: border-box;
+}
+img {
+    vertical-align: top;
+    border: none;
+}
+
+input {
+    outline: none;
+}
+
+html {
+    font-size: 31.25vw;
+    height: 100%;
+
+}
+
+body {
+    height: 100%;
+    font-size: 15px;
+    
+    font-family: PingFang SC,Helvetica,Arial,微软雅黑;
+    color: #494949;
+}
