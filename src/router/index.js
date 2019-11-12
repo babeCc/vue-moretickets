@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< HEAD
 import shouye from "./shouye";
 import mine from "./mine";
 
@@ -41,6 +42,21 @@ router.beforeEach((to,from,next)=>{
   }else{
     next();
   }
+=======
+import list from "./list"
+
+Vue.use(VueRouter)
+
+const routes = [
+   
+]
+
+const router = new VueRouter({
+  mode:"hash",
+  routes:[
+    list
+  ]
+>>>>>>> f5103965017d8d6a505d021fa7a21cd692d376d4
 })
 
 
