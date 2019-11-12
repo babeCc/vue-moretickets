@@ -1,11 +1,24 @@
 <template>
   <div id="app">
-      <div>1</div>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <TabBar v-if="$route.meta.flag"/>
   </div>
 </template>
 
+<script>
+import TabBar from "@common/components/tabBar";
+export default {
+  name: "App",
+  components: {
+    TabBar
+  }
+};
+</script>
+
 <style lang="scss">
 
-
+ 
 
 </style>

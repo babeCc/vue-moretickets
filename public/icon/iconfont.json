@@ -1,0 +1,44 @@
+{
+  "id": "1504498",
+  "name": "摩天轮",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2854794",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "3337557",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "3494128",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "5764994",
+      "name": "删 除",
+      "font_class": "shanchu",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "6721961",
+      "name": "下三角",
+      "font_class": "lower-triangle",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
