@@ -7,12 +7,12 @@ const server = axios.create({
 })
 server.interceptors.request.use((config)=>{
     if(config.method == "get"){
-        config.params = {...config.data}
+        config.params = {...config.data};
     }
-
+    return config;
     // config.headers["content-type"] = "application/json";
 },(err)=>{
-    Promise.reject(err);
+    return Promise.reject(err);
 })
 
 server.interceptors.response.use((res)=>{

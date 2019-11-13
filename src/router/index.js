@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 <<<<<<< HEAD
 import shouye from "./shouye";
 import mine from "./mine";
+import detail from "./detail";
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,8 @@ const router = new VueRouter({
         requireAuth:false,
       },
       component:_=>import("@pages/login"),
-    }
+    },
+    detail
   ]
 })
 

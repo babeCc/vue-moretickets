@@ -1,16 +1,20 @@
 <template>
   <div class="shouye">
     <header class="header">
+      
       <div class="search-box">
         <div class="location">北京</div>
         <div class="search"></div>
         <input type="text" name class="search-input" value="暗恋桃花源" />
+       
       </div>
     </header>
+    <CC-Scroll ref="scroll">
+      
       <div class="section">
           <div class="slider-container">
                         <img src="https://img0.tking.cn/assets/img/yjiwyEK3Df_.jpg" alt="">
-        </div>
+          </div>
             <div class="list">
                 <ul>
                     <li>
@@ -86,15 +90,27 @@
                 </div>
             </div> 
         </div>
+        </CC-Scroll>
    </div>
   
 </template>
 <script>
 export default {
-  name: "Shouye"
+  name: "Shouye",
+  mounted(){
+    this.$refs.scroll.handleScroll()
+  }
 };
 </script>
 <style lang="scss">
+// .base{
+//    background: rgb(180, 53, 61);
+//    height:1rem;
+//    width:100%;
+//    position:absolute;
+//    top:0;
+//    z-index: 0;
+// }
 .shouye {
   left: 0;
   padding-bottom: 0.5rem;
@@ -123,7 +139,7 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-
+  z-index:100;
   position: fixed;
   display: flex;
   background: rgb(180, 53, 61);
@@ -184,7 +200,7 @@ export default {
 
 /*body*/
 .section {
-  height: 100%;
+  
   width: 100%;
   overflow: auto;
 }
