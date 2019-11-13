@@ -12,7 +12,6 @@
             <span class="iconfont" v-html="item.icon"></span>
             <p>{{item.text}}</p>
             </router-link>
-            
         </ul>
     </footer>
 </template>
