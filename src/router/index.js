@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-<<<<<<< HEAD
 import shouye from "./shouye";
 import mine from "./mine";
+<<<<<<< HEAD
 import detail from "./detail";
 import selectCity from "./city";
+=======
+import list from "./list"
+import search from "./search"
+>>>>>>> e235ef3c424d136517da4720bad92fb846b9505b
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -20,7 +24,9 @@ const router = new VueRouter({
 
     },
     shouye,
+    list,
     mine,
+    search,
     {
       name:"login",
       path:"/login",
@@ -45,24 +51,5 @@ router.beforeEach((to,from,next)=>{
   }else{
     next();
   }
-=======
-import list from "./list"
-
-Vue.use(VueRouter)
-
-const routes = [
-   
-]
-
-const router = new VueRouter({
-  mode:"hash",
-  routes:[
-    list
-  ]
->>>>>>> f5103965017d8d6a505d021fa7a21cd692d376d4
 })
-
-
-
-
 export default router;
