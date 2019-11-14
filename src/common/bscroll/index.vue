@@ -37,21 +37,12 @@ export default {
         handleScrollTo(y){
             this.scroll.scrollTo(0,y,300);
         },
-<<<<<<< HEAD
-        handleScroll(){
-         
-=======
         handleScroll(){      
->>>>>>> babeCc
             this.scroll.on("scroll",(pro)=>{
                 if(pro.y>30){
                   this.flag=true,
                   this.scroll.finishPullDown();
-<<<<<<< HEAD
-                 console.log(1);
-=======
                
->>>>>>> babeCc
                 setTimeout(()=>{this.flag=false},3000)  
                 }
             })

@@ -115,6 +115,7 @@ export default {
       location: state => state.city.location.cityName
     })
   },
+
   data() {
     return {
       list: [
