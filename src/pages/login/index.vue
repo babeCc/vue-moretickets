@@ -15,7 +15,7 @@
         <input type="text" placeholder="请输入账号" />
       </div>
       <div class="pwd">
-        <input type="text" placeholder="请输入密码" />
+        <input type="password" placeholder="请输入密码" />
       </div>
     </div>
     <div class="login-btn-wrapper">

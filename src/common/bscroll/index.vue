@@ -37,13 +37,12 @@ export default {
         handleScrollTo(y){
             this.scroll.scrollTo(0,y,300);
         },
-        handleScroll(){
-         
+        handleScroll(){      
             this.scroll.on("scroll",(pro)=>{
                 if(pro.y>30){
                   this.flag=true,
                   this.scroll.finishPullDown();
-                 console.log(1);
+               
                 setTimeout(()=>{this.flag=false},3000)  
                 }
             })

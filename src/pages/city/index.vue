@@ -1,9 +1,9 @@
 <template>
   <div class="city">
-    <router-link class="city_head" tag="div" to="/">
-      <img src="../../../public/img/back.jpg" alt />
+    <div class="city_head" >
+      <router-link tag="img" to="/" src="./img/back.jpg" alt />
       选择城市
-    </router-link>
+    </div>
     <div class="city_slider">
         <v-touch
           tag="div"
@@ -15,7 +15,6 @@
       </div>
     <CC-Scroll ref="scroll">
         <div class="city_body" ref="cityBody">
-      <!--下标-->
      
       <div class="city_type_title" id="type1">定位城市</div>
       <v-touch tag="div" @tap="handleLocation()" class="city_item">{{location}}</v-touch>
