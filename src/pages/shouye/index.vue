@@ -19,14 +19,14 @@
 
             <div class="swiper-pagination"></div>
           </div>
-         
+         <!-- '/list/viewType/'+item.urlName+'/'+item.type -->
         </div>
         <div class="list">
           <ul>
-            <router-link v-for="(item,index) in list" :key="index" :to="'/list/viewType/'+item.urlName+'/'+item.type" tag="li">
+            <v-touch v-for="(item,index) in list" :key="index" @tap="handleToList(item.type)" tag="li">
               <div :style="'backgroundImage:url(./img/list'+Number(index+1)+'.png)'"></div>
               <p>{{item.name}}</p>
-            </router-link>
+            </v-touch>
          
           </ul>
         </div>
