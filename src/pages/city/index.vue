@@ -19,6 +19,7 @@
      
       <div class="city_type_title" id="type1">定位城市</div>
       <v-touch tag="div" @tap="handleLocation()" class="city_item">{{location}}</v-touch>
+      <!--最近访问-->
       <div class="city_type_title" id="type2">最近访问城市</div>
       <div class="city_wrap">
         <v-touch tag="div" @tap="handleChange(item.cityID,item.cityName)"  v-for="(item,index) in historyCities" :key="index" class="city_item">{{item.cityName}}</v-touch>
