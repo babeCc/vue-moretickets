@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import city from "./city";
 Vue.use(Vuex)
 
+let state ={
+
+}
+
+let actions ={
+
+}
+
+let mutations = [
+
+]
 export default new Vuex.Store({
-  state: {
+  modules:{
+    city
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+  state,
+  actions,
+  mutations,
+  
 })

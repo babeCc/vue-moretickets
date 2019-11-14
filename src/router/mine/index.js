@@ -5,5 +5,6 @@ export default{
     meta:{
         tabBarFlag:false,
         requireAuth:true
-    }
+    },
+    
 }

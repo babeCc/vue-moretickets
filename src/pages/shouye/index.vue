@@ -3,7 +3,10 @@
     <header class="header">
       
       <div class="search-box">
-        <div class="location">北京</div>
+        <router-link
+          to="/city"
+          tag="div"
+         class="location">{{location}}</router-link>
         <div class="search"></div>
         <input type="text" name class="search-input" value="暗恋桃花源" />
        
@@ -95,10 +98,27 @@
   
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Shouye",
+  created(){
+     if (!sessionStorage.getItem("cityName")) {
+        sessionStorage.setItem("cityName",JSON.stringify({cityID:"1101",cityName:"北京"}))
+    }
+   
+  },
   mounted(){
-    this.$refs.scroll.handleScroll()
+    this.$refs.scroll.handleScroll();
+  },
+  computed:{
+    ...mapState({
+      location :state => state.city.location.cityName
+    })
+  },
+  data(){
+    return{
+      
+    }
   }
 };
 </script>

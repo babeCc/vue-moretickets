@@ -116,15 +116,18 @@
  import {detailApi} from "@api/show";
  import BScroll from "better-scroll";  
 export default {
+  
     data(){
         return{
-            detail :{},
-            artist:{}      
+            detail:{},
+            artist:{},
+            id:"5d78b3a9c756b133617b9b53"
+             
         }
     },
     name:"Detail",
     async created(){
-       let data = await detailApi();
+       let data = await detailApi(this.id);
        
        this.detail= data.result.data ;
        this.artist=this.detail.artists[0];

@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import shouye from "./shouye";
 import mine from "./mine";
 import detail from "./detail";
-
+import selectCity from "./city";
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -30,7 +30,8 @@ const router = new VueRouter({
       },
       component:_=>import("@pages/login"),
     },
-    detail
+    detail,
+    selectCity
   ]
 })
 
