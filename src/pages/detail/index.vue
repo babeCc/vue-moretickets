@@ -135,7 +135,7 @@ export default {
     },
     methods:{
         handleToList(){
-            this.$router.push("/list")
+            this.$router.back();
         },
         handleToHome(){
             this.$router.push("/shouye")

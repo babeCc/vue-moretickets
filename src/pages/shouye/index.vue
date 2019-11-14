@@ -1,106 +1,84 @@
 <template>
   <div class="shouye">
     <header class="header">
-      
       <div class="search-box">
+<<<<<<< HEAD
         <router-link
           to="/city"
           tag="div"
          class="location">{{location}}</router-link>
+=======
+        <router-link to="/city" tag="div" class="location">{{location}}</router-link>
+>>>>>>> babeCc
         <div class="search"></div>
         <input type="text" name class="search-input" value="暗恋桃花源" />
-       
       </div>
     </header>
     <CC-Scroll ref="scroll">
-      
       <div class="section">
-          <div class="slider-container">
-                        <img src="https://img0.tking.cn/assets/img/yjiwyEK3Df_.jpg" alt="">
-          </div>
-            <div class="list">
-                <ul>
-                    <li>
-                        <div></div>
-                        <p>演唱会</p>
-                    </li>
-                    <li>
-                        <div></div>
-                        话剧歌剧
-                    </li>
-                    <li>
-                        <div></div>
-                        体育赛事
-                    </li>
-                    <li>
-                        <div></div>
-                        音乐会
-                    </li>
-                    <li>
-                        <div></div>
-                        展览休闲
-                    </li>
-                    <li>
-                        <div></div>
-                        舞蹈芭蕾
-                    </li>
-                    <li>
-                        <div></div>
-                        儿童亲子
-                    </li>
-                    <li>
-                        <div></div>
-                        曲艺杂谈
-                    </li>
+        <div class="slider-container">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"> <img src="https://img0.tking.cn/assets/img/yjiwyEK3Df_.jpg" alt /></div>
+              <div class="swiper-slide"><img src="https://img1.tking.cn/assets/img/jcbKZaeBZP_.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="https://img2.tking.cn/assets/img/w4Nd2hph6x_.jpg" alt=""></div>
+            </div>
 
-                </ul>
-            </div>
-            <div class="banner">
-                <img src="https://img2.tking.cn/assets/img/Z7Neiyfmki_.gif" style="width:100%" alt="">
-            </div>
-            <div class="guarantee">
-                <ul>
-                    <li>服务保障</li>
-                    <li>票品保真</li>
-                    <li>假一赔三</li>
-                    <li>无票赔付</li>
-                </ul>
-            </div>
-            <div class="floor-container">
-                <div class="floor">
-                    <div class="floor-title">近期热门</div>
-                    <div class="floor-more">全部</div>
-                </div>
-                <div class="floor-content">
-                    <div class="column-1">
-                        <img src="https://img1.tking.cn/assets/img/n8JEQMnyhi_.jpg" style="width:1.86rem" alt="">
-                        <div class="show-text">
-                            <p class="show-title">绝色莫文蔚巡回演唱会2019巅峰之旅</p>
-                            <p class="show-time">
-                                11.24 18:30
-                            </p>
-                        </div>
-                    </div>
-                    <div class="column-2">
-                        <img src="https://img2.tking.cn/assets/img/fQE3P3AQc4_.jpg" style="width:0.96rem" alt="">
-                        <div class="show-content" >
-                                <p class="show-title">绝色莫文蔚巡回演唱会2019巅峰之旅</p>
-                                <p class="show-time">
-                                    11.24 18:30
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+            <div class="swiper-pagination"></div>
+          </div>
+         
         </div>
-        </CC-Scroll>
-   </div>
-  
+        <div class="list">
+          <ul>
+            <router-link v-for="(item,index) in list" :key="index" :to="'/list/viewType/'+item.urlName+'/'+item.type" tag="li">
+              <div :style="'backgroundImage:url(./img/list'+Number(index+1)+'.png)'"></div>
+              <p>{{item.name}}</p>
+            </router-link>
+         
+          </ul>
+        </div>
+        <div class="banner">
+          <img src="https://img2.tking.cn/assets/img/Z7Neiyfmki_.gif" style="width:100%" alt />
+        </div>
+        <div class="guarantee">
+          <ul>
+            <li>服务保障</li>
+            <li>票品保真</li>
+            <li>假一赔三</li>
+            <li>无票赔付</li>
+          </ul>
+        </div>
+        <div class="floor-container">
+          <div class="floor">
+            <div class="floor-title">近期热门</div>
+            <div class="floor-more">全部</div>
+          </div>
+          <div class="floor-content">
+            <div class="column-1">
+              <img src="https://img1.tking.cn/assets/img/n8JEQMnyhi_.jpg" style="width:1.86rem" alt />
+              <div class="show-text">
+                <p class="show-title">绝色莫文蔚巡回演唱会2019巅峰之旅</p>
+                <p class="show-time">11.24 18:30</p>
+              </div>
+            </div>
+            <div class="column-2">
+              <img src="https://img2.tking.cn/assets/img/fQE3P3AQc4_.jpg" style="width:0.96rem" alt />
+              <div class="show-content">
+                <p class="show-title">绝色莫文蔚巡回演唱会2019巅峰之旅</p>
+                <p class="show-time">11.24 18:30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CC-Scroll>
+  </div>
 </template>
 <script>
 import { mapState } from "vuex";
 export default {
   name: "Shouye",
+<<<<<<< HEAD
   created(){
      if (!sessionStorage.getItem("cityName")) {
         sessionStorage.setItem("cityName",JSON.stringify({cityID:"1101",cityName:"北京"}))
@@ -119,8 +97,86 @@ export default {
     return{
       
     }
+=======
+  created() {
+    if (!sessionStorage.getItem("cityName")) {
+      sessionStorage.setItem(
+        "cityName",
+        JSON.stringify({ cityID: "1101", cityName: "北京" })
+      );
+    }
+  },
+  mounted() {
+    this.$refs.scroll.handleScroll();
+     var mySwiper = new Swiper ('.swiper-container', {
+    loop: true,
+    autoplay:true,
+    delay:3000,
+    pagination: {
+      el: '.swiper-pagination',
+    }})
+  },
+  computed: {
+    ...mapState({
+      location: state => state.city.location.cityName
+    })
+  },
+  data() {
+    return {
+      list: [
+      
+        {
+          type:2,
+          urlName: "concerts",
+          name: "演唱会"
+        },
+        {
+          type:3,
+          urlName: "dramas",
+          name: "话剧歌剧"
+        },
+        {
+          type:4,
+          urlName: "sports",
+          name: "体育赛事"
+        },
+        {
+          type:5,
+          urlName: "musicale",
+          name: "音乐会"
+        },
+        {
+          type:6,
+          urlName: "exhibits",
+          name: "展览休闲"
+        },
+        {
+          type:7,
+          urlName: "dance",
+          name: "舞蹈芭蕾"
+        },
+        {
+          type:8,
+          urlName: "children",
+          name: "儿童亲子"
+        },
+        {
+          type:9,
+          urlName: "opera",
+          name: "曲艺杂谈"
+        }
+      ],
+       
+      
+    };
+  },
+  methods:{
+    
+>>>>>>> babeCc
   }
 };
+
+
 </script>
 <style lang="scss">
 // .base{
@@ -131,6 +187,13 @@ export default {
 //    top:0;
 //    z-index: 0;
 // }
+.swiper-wrapper{
+   margin:0 auto
+}
+.slider-container {
+    padding-left:.1rem
+   
+}  
 .shouye {
   left: 0;
   padding-bottom: 0.5rem;
@@ -159,7 +222,7 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  z-index:100;
+  z-index: 100;
   position: fixed;
   display: flex;
   background: rgb(180, 53, 61);
@@ -189,7 +252,7 @@ export default {
   padding-left: 0.22rem;
   display: block;
   background-size: 0.22rem 0.22rem;
-  padding-right: 0.2rem;
+  padding-right: 0.1 rem;
   white-space: nowrap;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   height: 0.22rem;
@@ -215,12 +278,11 @@ export default {
   background: url("../../../public/img/search.png") no-repeat;
   height: 0.22rem;
   width: 0.3rem;
-  margin-left: 0.3rem;
+  margin-left: 0.1rem;
 }
 
 /*body*/
 .section {
-  
   width: 100%;
   overflow: auto;
 }
@@ -260,40 +322,13 @@ export default {
 }
 
 .section ul li div {
-  background-image: url("../../../public/img/list1.png");
+  
   background-repeat: no-repeat;
   height: 0.4rem;
   width: 0.4rem;
   background-size: 0.4rem 0.4rem;
 }
 
-.section ul li:nth-child(2) div {
-  background-image: url("../../../public/img/list2.png");
-}
-
-.section ul li:nth-child(3) div {
-  background-image: url("../../../public/img/list3.png");
-}
-
-.section ul li:nth-child(4) div {
-  background-image: url("../../../public/img/list4.png");
-}
-
-.section ul li:nth-child(5) div {
-  background-image: url("../../../public/img/list5.png");
-}
-
-.section ul li:nth-child(6) div {
-  background-image: url("../../../public/img/list6.png");
-}
-
-.section ul li:nth-child(7) div {
-  background-image: url("../../../public/img/list7.png");
-}
-
-.section ul li:nth-child(8) div {
-  background-image: url("../../../public/img/list8.png");
-}
 
 .section .banner {
   padding-top: 0.18rem;
