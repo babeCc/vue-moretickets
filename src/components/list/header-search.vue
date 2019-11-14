@@ -3,7 +3,7 @@
         <div class="site-dropdown">
             <i class="iconfont">&#xe622;</i>
                 
-            <div class="cur-site">北京</div> 
+            <router-link tag="div" class="cur-site" to="/city">{{location}}</router-link> 
         </div>
 
         <router-link to="/search" class="input-wrapper">
@@ -20,8 +20,14 @@
 </template>
 
 <script>
+import {mapState}  from "vuex";
 export default {
   name: "HeaderSearch"
+  ,computed:{
+      ...mapState({
+          location:state=>state.city.location.cityName
+      })
+  }
 };
 </script>
 

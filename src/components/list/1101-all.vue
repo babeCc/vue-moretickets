@@ -52,44 +52,45 @@
 
 <script>
 import { listAllApi } from "@api/list";
+import {mapState} from "vuex";
 export default {
   name: "listAllApi",
+  
   data() {
     return {
       listData: [],
       type: 1,
-      cityID:1101
+      cityID:1101,
+      city:{}
     };
   },
-
-  watch: {
-    $route() {
-      this.handleGetList();
-    }
-  },
-  created() {
-    this.handleGetList();
-    sessionStorage.getItem("ci")
-  },
-  // activated(){
-  //   //  if(this.typeId == this.$store.state.city.cityId){
-  //   //     this.movieList = JSON.parse(sessionStorage.getItem("movieList"))
-  //   //  }else{
-  //      this.handleGetMovieList(this.type);
-  //      this.typeId = this.$store.state.city.cityId;
-
-  // },
-  methods: {
+   methods: {
     async handleGetList() {
       let { urlName,type } = this.$route.params;
-     this.type = type;
-     
-    
+      this.type = type;
+       this.cityID = JSON.parse(sessionStorage.getItem("cityName")).cityID
       let data = await listAllApi(this.cityID, this.type);
       this.listData = data.result.data;
     }
   },
-  mounted() {}
+
+  created() {
+       
+    sessionStorage.getItem("ci") ;
+  
+  },
+  watch:{
+      $route(to,from){  
+       
+       if(to.path =="/list/viewType/all/1" ||to.path =="/list/viewType/concerts/2" ||to.path == "/list/viewType/dramas/3" ||to.path =="/list/viewType/sports/4"||to.path =="/list/viewType/musicale/5" ||to.path =="exhibits/6" || to.path =="/list/viewType/dance/7" || to.path =="/list/viewType/chlidren/8" || to.path =="/list/viewType/opera/9" ){
+        
+         this.handleGetList();
+       }
+      }
+    },
+ 
+
+
 };
 </script>
 

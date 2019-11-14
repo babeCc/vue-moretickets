@@ -26,7 +26,7 @@
         </div>
         <div class="list">
           <ul>
-            <v-touch v-for="(item,index) in list" :key="index" @tap="handleToList(item.type)" tag="li">
+            <v-touch v-for="(item,index) in list" :key="index" @tap="handleToList(item)" tag="li">
               <div :style="'backgroundImage:url(./img/list'+Number(index+1)+'.png)'"></div>
               <p>{{item.name}}</p>
             </v-touch>
@@ -103,19 +103,24 @@ export default {
   mounted() {
     this.$refs.scroll.handleScroll();
      var mySwiper = new Swiper ('.swiper-container', {
-    loop: true,
-    autoplay:true,
-    delay:3000,
-    pagination: {
-      el: '.swiper-pagination',
+      loop: true,
+      autoplay:true,
+      delay:3000,
+      pagination: {
+        el: '.swiper-pagination',
     }})
+    
   },
   computed: {
     ...mapState({
       location: state => state.city.location.cityName
     })
   },
-
+  methods:{
+    handleToList(item){
+        this.$router.push("/list/viewType/"+item.urlName+"/"+item.type)
+    }
+  },
   data() {
     return {
       list: [
@@ -164,10 +169,8 @@ export default {
        
       
     };
-  },
-  methods:{
-    
   }
+  
 };
 
 
