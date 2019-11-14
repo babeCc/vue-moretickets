@@ -24,6 +24,7 @@ export default {
         }
     },
     mounted(){
+
       this.scroll =  new BScroll(this.$refs.wrapper,{
             probeType:1,
             pullDownRefresh:{
@@ -33,13 +34,16 @@ export default {
         })
     },
     methods:{
+        handleScrollTo(y){
+            this.scroll.scrollTo(0,y,300);
+        },
         handleScroll(){
-          
+         
             this.scroll.on("scroll",(pro)=>{
                 if(pro.y>30){
                   this.flag=true,
-                  this.scroll.closePullDown();
-                  console.log('获取数据')
+                  this.scroll.finishPullDown();
+                 console.log(1);
                 setTimeout(()=>{this.flag=false},3000)  
                 }
             })
