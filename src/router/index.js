@@ -2,13 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import shouye from "./shouye";
 import mine from "./mine";
-<<<<<<< HEAD
 import detail from "./detail";
 import selectCity from "./city";
-=======
 import list from "./list"
 import search from "./search"
->>>>>>> e235ef3c424d136517da4720bad92fb846b9505b
 Vue.use(VueRouter)
 
 const router = new VueRouter({

@@ -2,14 +2,10 @@
   <div class="shouye">
     <header class="header">
       <div class="search-box">
-<<<<<<< HEAD
         <router-link
           to="/city"
           tag="div"
          class="location">{{location}}</router-link>
-=======
-        <router-link to="/city" tag="div" class="location">{{location}}</router-link>
->>>>>>> babeCc
         <div class="search"></div>
         <input type="text" name class="search-input" value="暗恋桃花源" />
       </div>
@@ -78,26 +74,24 @@
 import { mapState } from "vuex";
 export default {
   name: "Shouye",
-<<<<<<< HEAD
-  created(){
-     if (!sessionStorage.getItem("cityName")) {
-        sessionStorage.setItem("cityName",JSON.stringify({cityID:"1101",cityName:"北京"}))
-    }
+  // created(){
+  //    if (!sessionStorage.getItem("cityName")) {
+  //       sessionStorage.setItem("cityName",JSON.stringify({cityID:"1101",cityName:"北京"}))
+  //   }
    
-  },
-  mounted(){
-    this.$refs.scroll.handleScroll();
-  },
-  computed:{
-    ...mapState({
-      location :state => state.city.location.cityName
-    })
-  },
-  data(){
-    return{
+  // },
+  // mounted(){
+  //   this.$refs.scroll.handleScroll();
+  // },
+  // computed:{
+  //   ...mapState({
+  //     location :state => state.city.location.cityName
+  //   })
+  // },
+  // data(){
+  //   return{
       
-    }
-=======
+  //   }
   created() {
     if (!sessionStorage.getItem("cityName")) {
       sessionStorage.setItem(
@@ -172,7 +166,6 @@ export default {
   },
   methods:{
     
->>>>>>> babeCc
   }
 };
 
