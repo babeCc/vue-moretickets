@@ -3,13 +3,21 @@ export default {
     component:_=>import("@pages/list"),
     name:"list",
     meta:{
-        flag:true
+        tabBarFlag:true
     },
     children:[
         {
-            // path:"/list",
-            // redirect:"/list/movienow"
+            path:"/list",
+            redirect:"/list/viewType/all/1"
         },
-       
+        {
+            path:"viewType/:urlName/:type",
+            component:_=>import("@components/list/1101-all"),
+            name:"all",
+            meta:{
+                tabBarFlag:true
+            }, 
+        
+        }
     ]
 }
