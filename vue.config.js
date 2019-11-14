@@ -5,6 +5,10 @@ module.exports = {
             "/showapi":{
                 target:"https://m.moretickets.com",
                 changeOrigin:true
+            },
+            "/userdataapi":{
+                target:"https://m.moretickets.com",
+                changeOrigin:true
             }
           }
          

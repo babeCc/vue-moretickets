@@ -4,6 +4,8 @@ import shouye from "./shouye";
 import mine from "./mine";
 import detail from "./detail";
 import selectCity from "./city";
+import list from "./list"
+import search from "./search"
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -19,7 +21,9 @@ const router = new VueRouter({
 
     },
     shouye,
+    list,
     mine,
+    search,
     {
       name:"login",
       path:"/login",
@@ -45,8 +49,4 @@ router.beforeEach((to,from,next)=>{
     next();
   }
 })
-
-
-
-
 export default router;

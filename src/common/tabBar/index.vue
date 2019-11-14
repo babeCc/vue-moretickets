@@ -37,7 +37,7 @@ export default {
                     id:1,
                     text:"演出",
                     icon:"&#xe8c0;",
-                    path:"/yanchu"
+                    path:"/list"
                 },
                  {
                     id:2,
