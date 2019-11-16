@@ -1,47 +1,56 @@
 <template>
   <div class="city">
-    <div class="city_head" >
-      <router-link tag="img" to="/" src="./img/back.jpg" alt />
-      选择城市
+    <div class="city_head">
+      <router-link tag="img" to="/" src="./img/back.jpg" alt />选择城市
     </div>
     <div class="city_slider">
-        <v-touch
-          tag="div"
-          @tap="handleTo(index)"
-          v-for="(item,index) in allCities"
-          :key="index"
-          class="city_spelling"
-        >{{item.title}}</v-touch>
-      </div>
+      <v-touch
+        tag="div"
+        @tap="handleTo(index)"
+        v-for="(item,index) in allCities"
+        :key="index"
+        class="city_spelling"
+      >{{item.title}}</v-touch>
+    </div>
     <CC-Scroll ref="scroll">
-        <div class="city_body" ref="cityBody">
-     
-      <div class="city_type_title" id="type1">定位城市</div>
-      <v-touch tag="div" @tap="handleLocation()" class="city_item">{{location}}</v-touch>
-      <!--最近访问-->
-      <div class="city_type_title" id="type2">最近访问城市</div>
-      <div class="city_wrap">
-        <v-touch tag="div" @tap="handleChange(item.cityID,item.cityName)"  v-for="(item,index) in historyCities" :key="index" class="city_item">{{item.cityName}}</v-touch>
-      
-      </div>
-      <div class="city_type_title" id="type3">热门城市</div>
-      <div class="city_wrap">
-        <v-touch tag="div" @tap="handleChange(item.cityOID,item.cityName)" v-for="(item,index) in hotCities" :key="index" class="city_item">{{item.cityName}}</v-touch>
-      </div>
-      <!--城市列表下标-->
-      <div class="all_city" v-for="(item,index) in allCities" :key="index" >
-        <div class="city_type_title" :id="item.title" ref="cityList">{{item.title}}</div>
-
-        <div class="allcity_wrap">
+      <div class="city_body" ref="cityBody">
+        <div class="city_type_title" id="type1">定位城市</div>
+        <v-touch tag="div" @tap="handleLocation()" class="city_item">{{location}}</v-touch>
+        <!--最近访问-->
+        <div class="city_type_title" id="type2">最近访问城市</div>
+        <div class="city_wrap">
           <v-touch
-            v-for="(item,index) in item.cities"
-            class="allcity_item"
+            tag="div"
+            @tap="handleChange(item.cityID,item.cityName)"
+            v-for="(item,index) in historyCities"
             :key="index"
-            @tap="handleChange(item.cityOID,item.cityName)"
+            class="city_item"
           >{{item.cityName}}</v-touch>
         </div>
+        <div class="city_type_title" id="type3">热门城市</div>
+        <div class="city_wrap">
+          <v-touch
+            tag="div"
+            @tap="handleChange(item.cityOID,item.cityName)"
+            v-for="(item,index) in hotCities"
+            :key="index"
+            class="city_item"
+          >{{item.cityName}}</v-touch>
+        </div>
+        <!--城市列表下标-->
+        <div class="all_city" v-for="(item,index) in allCities" :key="index">
+          <div class="city_type_title" :id="item.title" ref="cityList">{{item.title}}</div>
+
+          <div class="allcity_wrap">
+            <v-touch
+              v-for="(item,index) in item.cities"
+              class="allcity_item"
+              :key="index"
+              @tap="handleChange(item.cityOID,item.cityName)"
+            >{{item.cityName}}</v-touch>
+          </div>
+        </div>
       </div>
-    </div>
     </CC-Scroll>
   </div>
 </template>
@@ -56,12 +65,11 @@ export default {
       hotCities: state => state.city.hotCities,
       allCities: state => state.city.allCities,
       location: state => state.city.location.cityName,
-      historyCities:state =>state.city.historyCities
+      historyCities: state => state.city.historyCities
     })
   },
   name: "city",
   created() {
-   
     if (
       !(
         sessionStorage.getItem("hotCities") &&
@@ -72,30 +80,33 @@ export default {
     }
   },
   methods: {
-    handleLocation(){
+    handleLocation() {
       this.$router.back();
     },
     handleTo(index) {
-     let t= this.$refs.cityList[index].offsetTop;
-       this.$refs.scroll.handleScrollTo(-t)   
+      let t = this.$refs.cityList[index].offsetTop;
+      t = t - 55;
+      this.$refs.scroll.handleScrollTo(-t);
     },
-    handleChange(cityID,cityName){
-        this.$router.back();
-        this.$store.commit("city/handleChangeCity",{cityID:cityID,cityName:cityName})
-        
+    handleChange(cityID, cityName) {
+      this.$router.back();
+      this.$store.commit("city/handleChangeCity", {
+        cityID: cityID,
+        cityName: cityName
+      });
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-.scroll_container{
-     padding-top: 0.5rem;
+.scroll_container {
+  padding-top: 0.5rem;
   padding-left: 0.15rem;
   padding-right: 0.4rem;
   flex: 1;
   position: relative;
   background-color: #f2f2f2;
-  height:6.67rem;
+  height: 6.67rem;
 }
 .city_spelling {
   padding: 0.04rem;

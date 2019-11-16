@@ -1,6 +1,12 @@
 <template>
   <div class="list-body">
-    <div class="list_item" v-for="(item,index) in listData" :key="index">
+    <router-link
+      class="list_item"
+      v-for="(item,index) in listData"
+      :key="index"
+      tag="div"
+      :to="'/detail/'+item.showOID"
+    >
       <div class="show-component normal">
         <div class="normal-content">
           <!-- ===================left========== -->
@@ -19,14 +25,14 @@
                   <div class="show-avenue">{{item.venueName}}</div>
                 </div>
 
-                <div class="discount">
-                  <div class="number">9.7</div>
+                <div class="discount" v-show="item.discount==0 || item.discount<1">
+                  <div class="number">{{(item.discount*10).toFixed(1)}}</div>
                   <div class="txt">折起</div>
                 </div>
               </div>
               <div class="other-detail">
                 <div class="left-part active">
-                  <div class="tag sell">售票中</div>
+                  <div class="tag sell">{{item.showStatus.displayName}}</div>
                 </div>
                 <div>
                   <span></span>
@@ -46,51 +52,51 @@
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 import { listAllApi } from "@api/list";
-import {mapState} from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "listAllApi",
-  
+
   data() {
     return {
       listData: [],
       type: 1,
-      cityID:1101,
-      city:{}
+      cityID: 1101,
+      city: {}
     };
   },
-   methods: {
+  methods: {
     async handleGetList() {
-      let { urlName,type } = this.$route.params;
+      let { urlName, type } = this.$route.params;
       this.type = type;
-       this.cityID = JSON.parse(sessionStorage.getItem("cityName")).cityID
+     
+      this.cityID = JSON.parse(sessionStorage.getItem("cityName")).cityID;
       let data = await listAllApi(this.cityID, this.type);
       this.listData = data.result.data;
+
+       this.$store.commit("handleType",this.type)
     }
   },
 
   created() {
-       
-    sessionStorage.getItem("ci") ;
-  
+    sessionStorage.getItem("ci");
+    this.handleGetList();
   },
-  watch:{
-      $route(to,from){  
-       
-       if(to.path =="/list/viewType/all/1" ||to.path =="/list/viewType/concerts/2" ||to.path == "/list/viewType/dramas/3" ||to.path =="/list/viewType/sports/4"||to.path =="/list/viewType/musicale/5" ||to.path =="exhibits/6" || to.path =="/list/viewType/dance/7" || to.path =="/list/viewType/chlidren/8" || to.path =="/list/viewType/opera/9" ){
-        
-         this.handleGetList();
-       }
+  watch: {
+    $route(to, from) {
+      if (
+        /\/list\/viewType\/\w*\/\d?/.test(to.path) &&
+        !/\/detail\/\w*/.test(from.path)
+      ) {
+        this.handleGetList();
       }
-    },
- 
-
-
+    }
+  }
 };
 </script>
 

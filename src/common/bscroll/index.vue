@@ -30,7 +30,9 @@ export default {
             pullDownRefresh:{
                  threshold: 30,
                 stop: 0
-            }
+            },
+            scrollX:true,
+           
         })
     },
     methods:{
@@ -52,10 +54,13 @@ export default {
 </script>
 <style lang="scss">
 .scroll_container{
-     height:100%;
+     height:100%;  
+     width:100%;
 }
     .wrapper{
     height:100%;
+    width:100%;
+  
 }
 .scroll_loading{
     display:flex;

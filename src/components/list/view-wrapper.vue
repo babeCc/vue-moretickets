@@ -1,19 +1,25 @@
 <template>
   <div class="view-wrapper">
+    
     <div class="list-type-nav-container">
-      <div class="list-type-nav" active-in-view>
-        <div class="type-nav-container">
-          <router-link
+      <div class="list-type-nav" active-in-view  ref="scroll">
+       
+        <div class="type-nav-container"  ref="type">
+          <v-touch
             v-for="(item,index) in viewType"
             :key="index"
-            :to="'/list/viewType/'+item.urlName+'/'+item.type"
+            @tap="handleTo(item.urlName,item.type)"
             class="type-nav "
+            :class="n==item.type?'active':''"
+           
           >
             {{item.name}}
             <div class="active-line"></div>
-          </router-link>
+          </v-touch>
         </div>
+        </CCscroll>
       </div>
+     
       <div class="iconfont btn-menu">&#xe664;</div>
     </div>
 
@@ -31,9 +37,14 @@
 </template>
 
 <script>
+import CCscroll from "@common/bscroll";
 export default {
+  components:{
+      CCscroll
+  },
   data() {
     return {
+      n:1,
       viewType: [
         {
           type:1,
@@ -85,15 +96,28 @@ export default {
       activeIndex:0,
     };
   },
+  created(){
+    
+  },
+  activated(){
+    this.n = this.$store.state.type;
+  },
    methods: {
         handleToggle(index){
             this.activeIndex = index;
+        },
+        handleTo(name,type){
+         
+            this.$router.push('/list/viewType/'+name+'/'+type)
+            this.n = type;
         }
+        
    }
 };
 </script>
 
 <style lang="scss" >
+
 .view-wrapper {
   width: 100%;
   position: sticky;

@@ -8,7 +8,7 @@ export default {
     children:[
         {
             path:"/list",
-            redirect:"/list/viewType/all/1"
+            redirect:"/list/viewType/all/1/"
         },
         {
             path:"viewType/:urlName/:type",

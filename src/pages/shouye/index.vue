@@ -72,6 +72,7 @@
 </template>
 <script>
 import { mapState } from "vuex";
+
 export default {
   name: "Shouye",
   // created(){
@@ -101,6 +102,7 @@ export default {
     }
   },
   mounted() {
+    
     this.$refs.scroll.handleScroll();
      var mySwiper = new Swiper ('.swiper-container', {
       loop: true,
@@ -118,7 +120,8 @@ export default {
   },
   methods:{
     handleToList(item){
-        this.$router.push("/list/viewType/"+item.urlName+"/"+item.type)
+        this.$router.push("/list/viewType/"+item.urlName+"/"+item.type);
+        this.$store.commit("handleChangeType",item.type)
     }
   },
   data() {
@@ -187,10 +190,10 @@ export default {
 .swiper-wrapper{
    margin:0 auto
 }
-.slider-container {
-    padding-left:.1rem
-   
-}  
+.slider-container{
+  padding-left: .1rem;
+}
+
 .shouye {
   left: 0;
   padding-bottom: 0.5rem;
@@ -249,7 +252,7 @@ export default {
   padding-left: 0.22rem;
   display: block;
   background-size: 0.22rem 0.22rem;
-  padding-right: 0.1 rem;
+  padding-right: 0.1rem;
   white-space: nowrap;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   height: 0.22rem;
