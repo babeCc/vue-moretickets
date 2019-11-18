@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive :exclude="/\/detail\/\.*/">
+    <keep-alive >
          <router-view></router-view>
     </keep-alive>
      <TabBar v-if="this.$route.meta.tabBarFlag" />

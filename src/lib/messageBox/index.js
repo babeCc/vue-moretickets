@@ -26,10 +26,6 @@ export default (
             document.body.appendChild(messageBoxVm.$mount().$el)
         }
 
-
-
-
-
         messageBoxCallBack.type = "function";
         return messageBoxCallBack;
     }

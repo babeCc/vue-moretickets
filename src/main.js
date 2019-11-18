@@ -3,9 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueTouch from "vue-touch";
+import Observer from "@lib/observer";
 
-
-
+Vue.prototype.$observer = Observer;
 
 
 import Components from "@common";

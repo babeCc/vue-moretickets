@@ -1,7 +1,7 @@
 <template>
   <div class="view-wrapper">
     
-    <div class="list-type-nav-container">
+    <div class="list-type-nav-container"> 
       <div class="list-type-nav" active-in-view  ref="scroll">
        
         <div class="type-nav-container"  ref="type">
@@ -17,7 +17,7 @@
             <div class="active-line"></div>
           </v-touch>
         </div>
-        </CCscroll>
+      
       </div>
      
       <div class="iconfont btn-menu">&#xe664;</div>

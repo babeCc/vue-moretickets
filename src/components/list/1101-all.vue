@@ -25,7 +25,7 @@
                   <div class="show-avenue">{{item.venueName}}</div>
                 </div>
 
-                <div class="discount" v-show="item.discount==0 || item.discount<1">
+                <div class="discount" v-show="item.discount!=0 && item.discount<1">
                   <div class="number">{{(item.discount*10).toFixed(1)}}</div>
                   <div class="txt">折起</div>
                 </div>
@@ -91,7 +91,7 @@ export default {
     $route(to, from) {
       if (
         /\/list\/viewType\/\w*\/\d?/.test(to.path) &&
-        !/\/detail\/\w*/.test(from.path)
+        !/\/detail\/\w*/.test(from.path) && from.path!="/search"
       ) {
         this.handleGetList();
       }

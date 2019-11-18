@@ -7,7 +7,7 @@
           tag="div"
          class="location">{{location}}</router-link>
         <div class="search"></div>
-        <input type="text" name class="search-input" value="暗恋桃花源" />
+        <router-link type="text" name class="search-input" value="暗恋桃花源" tag="input" to="/search" ></router-link>
       </div>
     </header>
     <CC-Scroll ref="scroll">

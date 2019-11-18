@@ -3,7 +3,7 @@ export default{
     component:_=>import("@pages/mine"),
     name:"mine",
     meta:{
-        tabBarFlag:false,
+        tabBarFlag:true,
         requireAuth:true
     },
     

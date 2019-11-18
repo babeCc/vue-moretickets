@@ -6,14 +6,19 @@
             <router-link tag="div" class="cur-site" to="/city">{{location}}</router-link> 
         </div>
 
-        <router-link to="/search" class="input-wrapper">
+        <div  class="input-wrapper">
             <div class="search-input">
                 <i class="iconfont">&#xe61d;</i>
-                <form action="javascript:return true">
-                    <input type="search" class="search-box-input" placeholder="搜索明星、演出、赛事、场馆">
-                </form>
+             
+                    <router-link 
+                    tag="input"
+                    type="search" 
+                    class="search-box-input" 
+                    placeholder="搜索明星、演出、赛事、场馆"
+                    to="/search"></router-link>
+             
             </div>
-        </router-link>
+        </div>
         <div class="place-holder"></div>
     </div>
 

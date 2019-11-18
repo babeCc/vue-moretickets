@@ -5,13 +5,13 @@
             <div class="search-input">
                 <i class="iconfont">&#xe61d;</i>
                 <form action="javascript:return true">
-                    <input type="search" class="search-box-input" placeholder="泰坦尼克号">
+                    <input type="search" class="search-box-input" placeholder="泰坦尼克号" v-model="word" @input="handleSend()">
                 </form>
             </div>
         </div>
-        <v-touch @tap="handleBack()" tag="div" class="search-option">
+        <router-link to="/shouye" tag="div" class="search-option" >
             取消
-        </v-touch>
+        </router-link>
     </div>
 </div>
     
@@ -21,12 +21,25 @@
 <script>
 export default {
   name: "HeaderSearch",
-  methods:{
-    handleBack(){
-        this.$router.push("/shouye");
+  methods:{  
+    
+  },
+   data(){
+       return {
+           word:""
+       }
+   },
+   created(){
        
-    }
-  }
+       
+   },
+   methods:{
+       handleSend(){
+          
+           this.$observer.$emit("handleSendWord",this.word);
+       }
+   }
+ 
 };
 </script>
 
@@ -41,6 +54,12 @@ export default {
     display: flex;
     border-bottom: 1px solid #ccc;
     min-height: .5rem;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background:#fff;
+  z-index:200;
    .header-search {
     width: 100%;
     background: #fff;

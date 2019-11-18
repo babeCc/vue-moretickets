@@ -40,7 +40,7 @@ const router = new VueRouter({
 
 router.beforeEach((to,from,next)=>{
   if(to.path !="/login" && to.meta.requireAuth){
-    if(localStorage.getItem("token")){
+    if(sessionStorage.getItem("token")){
       next();
     }else{
       next({name:"login",params:{to:to.path}});

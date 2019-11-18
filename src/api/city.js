@@ -4,7 +4,7 @@ export const citiesApi = () => Http({
     method: "get",
     url: "showapi/cities",
     data: {
-        time: 1573633928163,
+        time: new Date().getTime(),
         src: "m_web"
     }
 })
@@ -16,7 +16,7 @@ export const locationApi = (cityName="北京") => Http({
     url: "showapi/site_city",
     data: {
         cityName:cityName,
-        time: 1573638667624,
+        time: new Date().getTime(),
         src:"m_web" ,
     }
 })

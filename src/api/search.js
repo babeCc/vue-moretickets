@@ -1,11 +1,14 @@
 import http from "@utils/request";
 
-export const searchApi = () => http({
+export const searchApi = (keyword,locationCityOID) => http({
     method: "get",
-    url: "userdataapi/keywords",
+    url: "showapi/page/index",
     data: {
-        cityId: 1101,
-        time: 1573637797688,
+        offset: 0,
+        length: 10,
+        keyword:keyword,
+        locationCityOID: locationCityOID,
+        time: new Date().getTime(),     
         src: "m_web"
     }
 })

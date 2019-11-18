@@ -97,7 +97,7 @@
       </div>
     </CC-Scroll>
     <div class="detail-foot">
-      <div class="foot-btn">立即购票</div>
+      <v-touch tag="div" class="foot-btn" @tap="handleToBuy()">立即购票</v-touch>
     </div>
   </div>
 </template>
@@ -110,7 +110,7 @@ export default {
       detail: {},
       artist: 0,
       id: 0,
-      path:""
+      path: ""
     };
   },
   name: "Detail",
@@ -120,12 +120,13 @@ export default {
   },
   methods: {
     handleToList() {
-      this.$router.back();
-     
+      this.$router.back()
     },
+    //返回首页
     handleToHome() {
       this.$router.push("/shouye");
     },
+    //跳转详情页
     async handleGetDetail() {
       this.id = this.$route.params.showOID;
 
@@ -136,17 +137,29 @@ export default {
       if (this.detail.artists) {
         this.artist = this.detail.artists[0];
       }
+    },
+    //跳转购买页
+    handleToBuy() {
+      if (sessionStorage.getItem("token")) {
+        this.$router.push("/buy");
+      } else {
+        this.$router.push("/login");
+      }
     }
   },
+
   watch: {
     $route(to, from) {
-       
-
+      // //this.$router.back()有BUG，在此记录form.path
+        this.$store.commit("handleSaveFromDetailPath",from.path)
+        
       if (/\/detail\/\w*/.test(to.path)) {
         this.handleGetDetail();
       }
     }
-  }
+  },
+ 
+  
 };
 </script>
 <style lang="scss">

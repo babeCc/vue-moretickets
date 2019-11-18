@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="login-btn-wrapper">
-      <div class="login-btn">登录</div>
+      <v-touch tag="div" @tap="handleLogin()" class="login-btn">登录</v-touch>
       <div class="login-tip">
         未注册过的手机号将自动创建摩天轮账号，且代表您已同意
         <a href="javascript:void(0);" class="agree-ling">《摩天轮用户隐私政策》</a>
@@ -33,9 +33,20 @@ export default {
   name: "login",
   methods:{
     handleTap(){
-        this.$router.push("/shouye");
+        this.$router.back();
+    },
+    handleLogin(){
+       
+        if(sessionStorage.getItem("token")){
+          this.$router.back();
+        }else{
+           sessionStorage.setItem("token",Math.floor(Math.random()*1000)+100);
+           this.$router.back();
+        }
     }
-  }
+  },
+ 
+  
 };
 </script>
 <style lang="scss">
